@@ -67,7 +67,7 @@ var radio = (function() {
 				itemOptions = {
 					label: radios[item].title,
 					icon: radios[item].img,
-					onclick: "radio.playRadio('"+radios[item].URL+"');",
+					onclick: "radio.playRadio('"+radios[item].url+"');",
 					onclickSecondary: "radio.addToFavorite('"+item+"')",
 					secondarySymbol: "./common/symbols-black/star-filled.svg",
 					data: { "data-guide-id": item }
