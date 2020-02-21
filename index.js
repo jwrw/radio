@@ -19,7 +19,7 @@ var tunein = new TuneIn({
 
 beo.bus.on('general', function(event) {
 	if (event.header == "activatedExtension") {
-		if (event.content == "radio") {
+		if (event.content.extension == "radio") {
 			beo.sendToUI("radio", {
 				header: "homeContent", 
 				content: {
@@ -111,6 +111,13 @@ beo.bus.on('radio', function(event) {
 	}
 });
 
+function checkMPDStatus(callback) {
+	if (beo.extensions.mpd && beo.extensions.mpd.isEnabled) {
+		beo.extensions.mpd.isEnabled(callback);
+	}
+}
+
 module.exports = {
-	version: version
+	version: version,
+	isEnabled: checkMPDStatus
 };
